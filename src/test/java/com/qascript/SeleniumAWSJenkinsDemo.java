@@ -12,32 +12,20 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class SeleniumDemo {
+public class SeleniumAWSJenkinsDemo {
 
-	@Parameters("Browser")
+	
 	@Test
-	public void OpenBrowser(String browser) throws InterruptedException {
+	public void OpenBrowser() throws InterruptedException {
 
-		System.out.println("Parameter Name is " + browser);
+	
 		WebDriver driver = null;
 		
-		if (browser.contains("Chrome")) {
 			ChromeOptions chromeOptions = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(chromeOptions);
 			System.out.println("Launch Chrome Browser");
-		} else if (browser.contains("FireFox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-			System.out.println("Launch FF Browser");
-		}
-
-		else if (browser.contains("Edge")) {
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
-			System.out.println("Launch Edge Browser");
-		}
-
+		
 		driver.manage().window().maximize();
 		System.out.println("************Launch OHRM Application**************");
 		driver.get("https://opensource-demo.orangehrmlive.com/");
@@ -53,7 +41,7 @@ public class SeleniumDemo {
 		System.out.println("*********Title of the page is: " + driver.getTitle());
 		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
 		driver.quit();
-		System.out.println("********Browser: "+browser+" closed**********");
+		
 	}
 
 }
