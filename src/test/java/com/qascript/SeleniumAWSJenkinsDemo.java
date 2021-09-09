@@ -18,13 +18,12 @@ public class SeleniumAWSJenkinsDemo {
 	public void OpenBrowser() throws InterruptedException {
 
 		WebDriver driver;
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("headless");
-		// WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver(chromeOptions);
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("disable-gpu");
+        driver = new ChromeDriver(options);
 		System.out.println("Launch Chrome Browser");
-
 		driver.manage().window().maximize();
 		System.out.println("************Launch OHRM Application**************");
 		driver.get("https://opensource-demo.orangehrmlive.com/");
