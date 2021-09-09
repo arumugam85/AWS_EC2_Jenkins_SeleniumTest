@@ -18,7 +18,7 @@ public class SeleniumAWSJenkinsDemo {
 	public void OpenBrowser() throws InterruptedException {
 
 		WebDriver driver;
-		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("disable-gpu");
